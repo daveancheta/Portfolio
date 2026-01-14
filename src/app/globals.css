@@ -115,11 +115,36 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.wrapper {
+  @apply p-8 mx-8
+}
+
+/* Bank Gothic font */
+@font-face {
+  font-family: 'Bank Gothic';
+  src: url('/font/bank-gothic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  /* avoids invisible text */
+}
+
+.bank-gothic {
+  font-family: 'Bank Gothic', sans-serif;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
