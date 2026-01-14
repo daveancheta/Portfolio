@@ -1,6 +1,7 @@
 "use client"
 
 import Header from "@/components/common/header";
+import HeroSection from "@/components/common/hero-section";
 import Squares from "@/components/Squares";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-white/90 dark:bg-black/90 -z-5"></div>
 
       <Header />
+      <HeroSection />
 
     </div>
   );
