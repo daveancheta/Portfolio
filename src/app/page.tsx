@@ -2,6 +2,7 @@
 
 import Header from "@/components/common/header";
 import HeroSection from "@/components/common/hero-section";
+import ProjectSection from "@/components/common/project-section";
 import Squares from "@/components/Squares";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { cn } from "@/lib/utils";
@@ -12,7 +13,7 @@ export default function Home() {
   const { theme } = useTheme();
 
   return (
-    <div className="relative w-screen h-screen cursor-none">
+    <div className="relative w-screen min-h-screen cursor-none">
       <SmoothCursor />
 
       <div className="absolute inset-0 -z-10">
@@ -27,8 +28,10 @@ export default function Home() {
       <div className="absolute inset-0 bg-white/90 dark:bg-black/90 -z-5"></div>
 
       <Header />
+
       <HeroSection />
 
+      <ProjectSection />
     </div>
   );
 }

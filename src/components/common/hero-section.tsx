@@ -1,8 +1,8 @@
 import { Highlighter } from "@/components/ui/highlighter"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Link2 } from "lucide-react"
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
+import { AnimatedSpan, Terminal, TypingAnimation } from "@/components/ui/terminal"
 
 function HeroSection() {
   return (
@@ -46,15 +46,29 @@ function HeroSection() {
         </div>
       </div>
 
-      <div>
-        <HeroVideoDialog
-          className="block"
-          animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
-          thumbnailSrc="/profile.jpg"
-          thumbnailAlt="Dave Ancheta"
-        />
+      <div className="z-5 flex flex-col gap-2 sm:mt-0 mt-5">
+        <div className="max-w-lg w-full">
+          <HeroVideoDialog
+            animationStyle="from-center"
+            videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
+            thumbnailSrc="/profile.jpg"
+            thumbnailAlt="Dave Ancheta"
+          />
+        </div>
+
+        <div className="max-w-xl w-full">
+          <Terminal>
+            <TypingAnimation>Initializing life v2.0...</TypingAnimation>
+            <AnimatedSpan>✔ Woke up early</AnimatedSpan>
+            <AnimatedSpan>✔ Coded something new</AnimatedSpan>
+            <AnimatedSpan>✔ Learned a skill</AnimatedSpan>
+            <TypingAnimation>Deploying happiness...</TypingAnimation>
+            <AnimatedSpan>✔ Grateful and motivated</AnimatedSpan>
+          </Terminal>
+        </div>
       </div>
+
+
     </section>
   )
 }
