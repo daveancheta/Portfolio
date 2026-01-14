@@ -3,10 +3,10 @@ import { ModeToggle } from "../mode-toggle"
 
 function Header() {
     return (
-        <header className='wrapper font-medium -tracking-widest text-5xl
-    backdrop-blur shadow-accent text-black dark:text-white'>
+        <header className='wrapper font-bold -tracking-widest sm:text-5xl text-2xl
+    backdrop-blur shadow-accent'>
             <div className="flex gap-2 items-center justify-between">
-                <Link href='/'>HDA</Link>
+                <Link className="" href='/'>HDA</Link>
                 <div className="text-lg">
                     <ModeToggle />
                 </div>

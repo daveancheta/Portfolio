@@ -55,19 +55,18 @@ export const AnimatedThemeToggler = ({
       Math.max(top, window.innerHeight - top)
     )
 
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      }
-    )
+    if (buttonRef.current) {
+      buttonRef.current.animate(
+        {
+          transform: ["scale(1)", "scale(1.2)", "scale(1)"],
+          rotate: ["0deg", "20deg", "0deg"]
+        },
+        {
+          duration,
+          easing: "ease-in-out"
+        }
+      )
+    }
   }, [isDark, duration])
 
   return (
@@ -77,8 +76,8 @@ export const AnimatedThemeToggler = ({
       className={cn(className)}
       {...props}
     >
-      {isDark ? <Sun className="text-yellow-500 cursor-pointer"/> : <Moon className="text-gray-800 cursor-pointer"/>}
-      <span className="sr-only">Toggle theme</span>
+      <div id="div" className="bg-white dark:bg-black"></div>
+      {isDark ? <Sun className="text-yellow-500 cursor-none" /> : <Moon className="text-gray-800 cursor-none" />}
     </button>
   )
 }
