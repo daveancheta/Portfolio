@@ -37,90 +37,92 @@ function TechStackSection() {
     ];
 
     return (
-        <section className="wrapper mt-10">
-            <h1 className="text-4xl font-bold flex items-center gap-2">
-                <Layers className="text-muted-foreground" />
-                Tech Stack
-            </h1>
+        <section className="mt-10">
+            <div className="wrapper">
+                <h1 className="text-4xl font-bold flex items-center gap-2">
+                    <Layers className="text-muted-foreground" />
+                    Tech Stack
+                </h1>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {/* Frontend */}
-                <div>
-                    <p className="text-xl font-semibold">Frontend</p>
-                    {stack.map((stack) =>
-                        <div key={stack.id}>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {stack.frontend.map((frontend) =>
-                                    <Badge className="text-md border text-black dark:bg-black dark:text-white 
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    {/* Frontend */}
+                    <div>
+                        <p className="text-xl font-semibold">Frontend</p>
+                        {stack.map((stack) =>
+                            <div key={stack.id}>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {stack.frontend.map((frontend) =>
+                                        <Badge className="text-md border text-black dark:bg-black dark:text-white 
                                 rounded-sm" key={frontend} variant="outline">
-                                        {frontend}
-                                    </Badge>)}
-                            </div>
-                        </div>)}
-                </div>
+                                            {frontend}
+                                        </Badge>)}
+                                </div>
+                            </div>)}
+                    </div>
 
-                {/* Backend */}
-                <div>
-                    <p className="text-xl font-semibold">Backend</p>
-                    {stack.map((stack) =>
-                        <div key={stack.id}>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {stack.backend.map((backend) =>
-                                    <Badge className="text-md border text-black dark:bg-black dark:text-white 
+                    {/* Backend */}
+                    <div>
+                        <p className="text-xl font-semibold">Backend</p>
+                        {stack.map((stack) =>
+                            <div key={stack.id}>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {stack.backend.map((backend) =>
+                                        <Badge className="text-md border text-black dark:bg-black dark:text-white 
                                 rounded-sm" key={backend} variant="outline">
-                                        {backend}
-                                    </Badge>)}
-                            </div>
-                        </div>)}
-                </div>
+                                            {backend}
+                                        </Badge>)}
+                                </div>
+                            </div>)}
+                    </div>
 
-                {/* Database */}
-                <div>
-                    <p className="text-xl font-semibold">Database</p>
-                    {stack.map((stack) =>
-                        <div key={stack.id}>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {stack.database.map((database) =>
-                                    <Badge className="text-md border text-black dark:bg-black dark:text-white 
+                    {/* Database */}
+                    <div>
+                        <p className="text-xl font-semibold">Database</p>
+                        {stack.map((stack) =>
+                            <div key={stack.id}>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {stack.database.map((database) =>
+                                        <Badge className="text-md border text-black dark:bg-black dark:text-white 
                                 rounded-sm" key={database} variant="outline">
-                                        {database}
-                                    </Badge>)}
-                            </div>
-                        </div>)}
-                </div>
+                                            {database}
+                                        </Badge>)}
+                                </div>
+                            </div>)}
+                    </div>
 
-                {/* ORM */}
-                <div>
-                    <p className="text-xl font-semibold">ORM</p>
-                    {stack.map((stack) =>
-                        <div key={stack.id}>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {stack.orm.map((orm) =>
-                                    <Badge className="text-md border text-black dark:bg-black dark:text-white 
+                    {/* ORM */}
+                    <div>
+                        <p className="text-xl font-semibold">ORM</p>
+                        {stack.map((stack) =>
+                            <div key={stack.id}>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {stack.orm.map((orm) =>
+                                        <Badge className="text-md border text-black dark:bg-black dark:text-white 
                                 rounded-sm" key={orm} variant="outline">
-                                        {orm}
-                                    </Badge>)}
-                            </div>
-                        </div>)}
-                </div>
+                                            {orm}
+                                        </Badge>)}
+                                </div>
+                            </div>)}
+                    </div>
 
-                {/* deployment */}
-                <div>
-                    <p className="text-xl font-semibold">Deployment</p>
-                    {stack.map((stack) =>
-                        <div key={stack.id}>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {stack.deployment.map((deployment) =>
-                                    <Badge className="text-md border text-black dark:bg-black dark:text-white 
+                    {/* deployment */}
+                    <div>
+                        <p className="text-xl font-semibold">Deployment</p>
+                        {stack.map((stack) =>
+                            <div key={stack.id}>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {stack.deployment.map((deployment) =>
+                                        <Badge className="text-md border text-black dark:bg-black dark:text-white 
                                 rounded-sm" key={deployment} variant="outline">
-                                        {deployment}
-                                    </Badge>)}
-                            </div>
-                        </div>)}
+                                            {deployment}
+                                        </Badge>)}
+                                </div>
+                            </div>)}
+                    </div>
                 </div>
             </div>
 
-            <LogoLoop 
+            <LogoLoop
                 className="mt-4"
                 logos={techLogos}
                 speed={150}
