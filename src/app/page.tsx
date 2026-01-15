@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import HeroSection from "@/components/common/hero-section";
 import ProjectSection from "@/components/common/project-section";
@@ -37,6 +38,8 @@ export default function Home() {
       <ProjectSection />
 
       <TechStackSection />
+
+      <Footer />
     </div>
   );
 }
