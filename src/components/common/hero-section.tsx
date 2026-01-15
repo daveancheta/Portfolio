@@ -69,7 +69,7 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="z-5 flex flex-col gap-2 sm:mt-0 mt-5">
+      <div className="flex flex-col gap-2 sm:mt-0 mt-5">
         <div className="max-w-lg w-full">
           <HeroVideoDialog
             animationStyle="from-center"
