@@ -35,7 +35,8 @@ function ProjectSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-6">
         {projects.map((p) =>
           <Link href={p.link} key={p.id} className="cursor-none" target="_blank">
-            <div className="bg-white dark:bg-black p-5 border-3 rounded-lg min-h-150 max-h-150 space-y-4">
+            <div className="bg-white dark:bg-black p-5 border-3 rounded-lg min-h-150 max-h-150 space-y-4 
+            transition-all duration-300 ease-in-out hover:shadow-2xl transform hover:scale-101">
               <img className="rounded-lg" src={p.imgUrl} alt="" />
               <div className="p-4 flex flex-col gap-2">
                 <div className="flex flex-wrap gap-2">
