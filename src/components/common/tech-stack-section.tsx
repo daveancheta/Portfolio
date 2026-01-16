@@ -2,9 +2,12 @@ import { Layers } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import LogoLoop from "../LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJamstack, SiJavascript, SiPostgresql, SiMongodb, SiNodedotjs, SiExpress, SiLaravel, SiCodeigniter, SiJsonwebtokens, SiMysql, SiSqlite, SiPrisma, SiVercel, SiRailway } from 'react-icons/si';
+import { useIsMobile } from "@/app/hooks/use-mobiel";
 
 
 function TechStackSection() {
+    const isMobile = useIsMobile()
+
     const stack = [
         {
             id: 1,
@@ -141,9 +144,9 @@ function TechStackSection() {
             <LogoLoop
                 className="mt-8"
                 logos={techLogos}
-                speed={150}
+                speed={100}
                 direction="left"
-                logoHeight={48}
+                logoHeight={isMobile ? 30 : 45}
                 gap={40}
                 hoverSpeed={0}
                 scaleOnHover
