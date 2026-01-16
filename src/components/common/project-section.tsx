@@ -32,8 +32,8 @@ function ProjectSection() {
 
   return (
     <section className="wrapper mt-20">
-      <h1 className="text-4xl font-bold flex items-center gap-2">
-        <FolderKanban className="text-muted-foreground"/>Recent Projects
+      <h1 className="sm:text-4xl text-2xl font-bold flex items-center gap-2">
+        <FolderKanban className="text-muted-foreground sm:size-10 size-5"/>Recent Projects
         </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-6">
         {projects.map((p) =>
