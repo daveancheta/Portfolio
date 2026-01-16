@@ -74,17 +74,17 @@ function HeroSection() {
 
       <div className="order-2 sm:order-1 md:flex md:flex-col md:items-center xl:items-start sm:flex sm:flex-col sm:items-center">
         <div className="md:text-center sm:text-center xl:text-start">
-        <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
-        <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
-        <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">
-          Hello World,
-          I’m Dave from the Philippines,
-          a technology {" "}<Highlighter action="underline" color="#FF9800">enthusiast</Highlighter>{" "}
-          driven by passion for programming and continuous learning.</p>
+          <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
+          <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
+          <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">
+            Hello World,
+            I’m Dave from the Philippines,
+            a technology {" "}<Highlighter action="underline" color="#FF9800">enthusiast</Highlighter>{" "}
+            driven by passion for programming and continuous learning.</p>
 
-        <p className="sm:text-3xl md:text-2xl text-xl mt-5 sm:w-130 pacifico text-muted-foreground">
-          "Continue learning and exploring new things, but don't forget to rest, be with someone you love, and always pray." - Dave
-        </p>
+          <p className="sm:text-3xl md:text-2xl text-xl mt-5 sm:w-130 pacifico text-muted-foreground">
+            "Continue learning and exploring new things, but don't forget to rest, be with someone you love, and always pray." - Dave
+          </p>
         </div>
         <div>
           <div className="mt-5 flex flex-wrap gap-2 justify-center sm:justify-start">
