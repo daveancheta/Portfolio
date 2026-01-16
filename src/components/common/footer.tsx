@@ -1,14 +1,16 @@
 function Footer() {
-    const getCurrentYear = new Date().getFullYear()
+  const getCurrentYear = new Date().getFullYear()
 
-    return (
-      <footer className='backdrop-blur shadow-accent p-8 sm:px-20 px-10 
-      py-5 z-10 flex justify-center border-t-2 mt-10'>
-        <div className=''>
-        <h1>© {getCurrentYear} Heaven Dave Ancheta. All rights reserved.</h1>
-        </div>
-      </footer>
-    )
+  return (
+    <footer className='backdrop-blur bg-black/90 p-8 sm:px-20 px-10 
+      py-5   z-10 flex justify-center border-t-2 mt-10'>
+      <div className=''>
+        <p className="text-white font-semibold sm:text-sm text-xs truncate">
+          © {getCurrentYear} Heaven Dave Ancheta. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  )
 }
 
 export default Footer
