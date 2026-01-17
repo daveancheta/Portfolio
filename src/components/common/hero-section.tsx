@@ -89,7 +89,8 @@ function HeroSection() {
         <motion.div
           initial={{ opacity: 0, x: -1000 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeIn" }}>
+          transition={{ duration: 1, ease: "easeIn" }}
+          viewport={{ once: true }}>
           <div className="md:text-center sm:text-center xl:text-start">
             <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
             <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
