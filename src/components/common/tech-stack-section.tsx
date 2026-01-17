@@ -61,7 +61,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.frontend.map((frontend) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={frontend} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={frontend} variant="outline">
                                             {frontend}
                                         </Badge>)}
                                 </div>
@@ -76,7 +76,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.backend.map((backend) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={backend} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={backend} variant="outline">
                                             {backend}
                                         </Badge>)}
                                 </div>
@@ -91,7 +91,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.database.map((database) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={database} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={database} variant="outline">
                                             {database}
                                         </Badge>)}
                                 </div>
@@ -106,7 +106,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.orm.map((orm) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={orm} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={orm} variant="outline">
                                             {orm}
                                         </Badge>)}
                                 </div>
@@ -121,7 +121,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.deployment.map((deployment) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={deployment} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={deployment} variant="outline">
                                             {deployment}
                                         </Badge>)}
                                 </div>
@@ -136,7 +136,7 @@ function TechStackSection() {
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {stack.devTools.map((devTools) =>
                                         <Badge className="text-md border text-black dark:bg-black dark:text-white 
-                                rounded-sm" key={devTools} variant="outline">
+                                rounded-sm text-sm sm:text-md" key={devTools} variant="outline">
                                             {devTools}
                                         </Badge>)}
                                 </div>
