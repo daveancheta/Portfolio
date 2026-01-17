@@ -7,6 +7,8 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { MoveUpRight } from "lucide-react"
 import { useTheme } from "next-themes"
+import { motion } from "motion/react"
+
 
 function HeroSection() {
   const [hover, setHover] = useState<number | null>(null)
@@ -48,74 +50,86 @@ function HeroSection() {
   return (
     <section className="wrapper sm:mt-20 mt-10 grid xl:grid-cols-2 sm:grid-cols-1 lg:grid-cols-1 md-grid-cols-1 items-center gap-8">
       <div className="flex flex-col gap-2 sm:mt-0 mt-0 order-1 sm:order-1 md:order-1 xl:order-2 lg:order-1 sm:items-center md:items-center xl:items-start">
-        <div className="max-w-lg w-full">
-          <HeroVideoDialog
-            className="block dark:hidden"
-            animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
-            thumbnailSrc="/profile.jpg"
-            thumbnailAlt="Dave Ancheta"
-          />
-          <HeroVideoDialog
-            className="hidden dark:block"
-            animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
-            thumbnailSrc="/profile.jpg"
-            thumbnailAlt="Dave Ancheta"
-          />
-        </div>
-
-        <div className="max-w-xl w-full hidden xl:flex md:hidden sm:hidden">
-          <Terminal>
-            <TypingAnimation>Initializing life v2.0...</TypingAnimation>
-            <AnimatedSpan>✔ Woke up early</AnimatedSpan>
-            <AnimatedSpan>✔ Coded something new</AnimatedSpan>
-            <AnimatedSpan>✔ Learned a skill</AnimatedSpan>
-            <TypingAnimation>Deploying happiness...</TypingAnimation>
-            <AnimatedSpan>✔ Grateful and motivated</AnimatedSpan>
-          </Terminal>
-        </div>
-      </div>
-
-      <div className="order-2 sm:order-1 md:flex md:flex-col md:items-center xl:items-start sm:flex sm:flex-col sm:items-center">
-        <div className="md:text-center sm:text-center xl:text-start">
-          <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
-          <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
-          <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">
-            Hello World,
-            I’m Dave from the Philippines,
-            a technology {" "}<Highlighter action="underline" color="#FF9800">enthusiast</Highlighter>{" "}
-            driven by passion for programming and continuous learning.</p>
-
-          <p className="sm:text-3xl md:text-2xl text-xl mt-5 sm:w-130 pacifico text-muted-foreground">
-            "Continue learning and exploring new things, but don't forget to rest, be with someone you love, and always pray." - Dave
-          </p>
-        </div>
-        <div>
-          <div className="mt-5 flex flex-wrap gap-2 justify-center sm:justify-start">
-            {socialLinks.map((social) =>
-              <div className="relative flex justify-center" key={social.id}>
-                <div onMouseEnter={() => setHover(social.id)} onMouseLeave={() => setHover(null)} className={cn("absolute -top-62 bg-white dark:bg-black border-3 p-4 rounded-md min-h-40 w-100 transition-all duration-400 origin-bottom scale-0 opacity-0 ease-in-out sm:flex hidden", hover === social.id && "opacity-100 scale-100", hover === 4 && "opacity-0")}>
-                  <img className="w-full h-auto" src={social.profile} alt="" />
-                </div>
-
-                <Button onMouseEnter={() => setHover(social.id)} onMouseLeave={() => setHover(null)} className="cursor-none" variant='outline' asChild>
-                  <Link href={social.link} className="flex items-center" target="_blank">
-                    {social.logo}
-                    <span className="sm:flex hidden">{social.title}</span>
-                  </Link>
-                </Button>
-              </div>
-            )}
+        <motion.div
+          initial={{ opacity: 0, x: 1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeIn" }}>
+          <div className="max-w-lg w-full">
+            <HeroVideoDialog
+              className="block dark:hidden"
+              animationStyle="top-in-bottom-out"
+              videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
+              thumbnailSrc="/profile.jpg"
+              thumbnailAlt="Dave Ancheta"
+            />
+            <HeroVideoDialog
+              className="hidden dark:block"
+              animationStyle="top-in-bottom-out"
+              videoSrc="https://www.youtube.com/embed/Xl_xKoVivHk?si=8Bm0zR-x5zYSWrjq"
+              thumbnailSrc="/profile.jpg"
+              thumbnailAlt="Dave Ancheta"
+            />
           </div>
-          <Button className="cursor-none flex justify-center mt-2 w-full" variant='outline' asChild>
-            <Link href="mailto:daveancheta411@gmail.com" className="flex items-center">
-              <MoveUpRight />
-              Hire Me
-            </Link>
-          </Button>
-        </div>
+
+          <div className="max-w-xl w-full hidden xl:flex md:hidden sm:hidden">
+            <Terminal>
+              <TypingAnimation>Initializing life v2.0...</TypingAnimation>
+              <AnimatedSpan>✔ Woke up early</AnimatedSpan>
+              <AnimatedSpan>✔ Coded something new</AnimatedSpan>
+              <AnimatedSpan>✔ Learned a skill</AnimatedSpan>
+              <TypingAnimation>Deploying happiness...</TypingAnimation>
+              <AnimatedSpan>✔ Grateful and motivated</AnimatedSpan>
+            </Terminal>
+          </div>
+        </motion.div>
       </div>
+
+
+
+      <motion.div
+        initial={{ opacity: 0, x: -1000 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
+        <div className="order-2 sm:order-1 md:flex md:flex-col md:items-center xl:items-start sm:flex sm:flex-col sm:items-center">
+          <div className="md:text-center sm:text-center xl:text-start">
+            <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
+            <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
+            <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">
+              Hello World,
+              I’m Dave from the Philippines,
+              a technology enthusiast
+              driven by passion for programming and continuous learning.</p>
+
+            <p className="sm:text-3xl md:text-2xl text-xl mt-5 sm:w-130 pacifico text-muted-foreground">
+              "Continue learning and exploring new things, but don't forget to rest, be with someone you love, and always pray." - Dave
+            </p>
+          </div>
+          <div>
+            <div className="mt-5 flex flex-wrap gap-2 justify-center sm:justify-start">
+              {socialLinks.map((social) =>
+                <div className="relative flex justify-center" key={social.id}>
+                  <div onMouseEnter={() => setHover(social.id)} onMouseLeave={() => setHover(null)} className={cn("absolute -top-62 bg-white dark:bg-black border-3 p-4 rounded-md min-h-40 w-100 transition-all duration-400 origin-bottom scale-0 opacity-0 ease-in-out sm:flex hidden", hover === social.id && "opacity-100 scale-100", hover === 4 && "opacity-0")}>
+                    <img className="w-full h-auto" src={social.profile} alt="" />
+                  </div>
+
+                  <Button onMouseEnter={() => setHover(social.id)} onMouseLeave={() => setHover(null)} className="cursor-none" variant='outline' asChild>
+                    <Link href={social.link} className="flex items-center" target="_blank">
+                      {social.logo}
+                      <span className="sm:flex hidden">{social.title}</span>
+                    </Link>
+                  </Button>
+                </div>
+              )}
+            </div>
+            <Button className="cursor-none flex justify-center mt-2 w-full" variant='outline' asChild>
+              <Link href="mailto:daveancheta411@gmail.com" className="flex items-center">
+                <MoveUpRight />
+                Hire Me
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </motion.div>
     </section>
   )
 }

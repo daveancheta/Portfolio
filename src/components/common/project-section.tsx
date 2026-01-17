@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { FolderKanban } from "lucide-react";
+import { motion } from "motion/react"
 
 function ProjectSection() {
   const projects = [
@@ -32,28 +33,33 @@ function ProjectSection() {
 
   return (
     <section className="wrapper mt-20">
-      <h1 className="sm:text-4xl text-2xl font-bold flex items-center gap-2">
-        <FolderKanban className="text-muted-foreground sm:size-8 size-5"/>Recent Projects
+      <motion.div initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeIn' }}
+        viewport={{ once: false }}>
+        <h1 className="sm:text-4xl text-2xl font-bold flex items-center gap-2">
+          <FolderKanban className="text-muted-foreground sm:size-8 size-5" />Recent Projects
         </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-6">
-        {projects.map((p) =>
-          <Link href={p.link} key={p.id} className="cursor-none" target="_blank">
-            <div className="bg-white dark:bg-black p-5 border-3 rounded-lg min-h-150 max-h-150 space-y-4 
+        <div className="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-6">
+          {projects.map((p) =>
+            <Link href={p.link} key={p.id} className="cursor-none" target="_blank">
+              <div className="bg-white dark:bg-black p-5 border-3 rounded-lg min-h-150 max-h-150 space-y-4 
             transition-all duration-300 ease-in-out hover:shadow-2xl transform hover:scale-101">
-              <img className="rounded-lg" src={p.imgUrl} alt="" />
-              <div className="p-4 flex flex-col gap-2">
-                <div className="flex flex-wrap gap-2">
-                  {p.stack.map((stack) =>
-                    <Badge variant="secondary" className="p-2 rounded-lg" key={stack}>{stack}</Badge>
-                  )}
+                <img className="rounded-lg" src={p.imgUrl} alt="" />
+                <div className="p-4 flex flex-col gap-2">
+                  <div className="flex flex-wrap gap-2">
+                    {p.stack.map((stack) =>
+                      <Badge variant="secondary" className="p-2 rounded-lg" key={stack}>{stack}</Badge>
+                    )}
+                  </div>
+                  <h1 className="text-2xl font-bold">{p.title}</h1>
+                  <p className="text-base text-muted-foreground">{p.description}</p>
                 </div>
-                <h1 className="text-2xl font-bold">{p.title}</h1>
-                <p className="text-base text-muted-foreground">{p.description}</p>
               </div>
-            </div>
-          </Link>
-        )}
-      </div>
+            </Link>
+          )}
+        </div>
+      </motion.div>
 
     </section>
   )

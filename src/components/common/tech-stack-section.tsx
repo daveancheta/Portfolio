@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import LogoLoop from "../LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiPostgresql, SiMongodb, SiNodedotjs, SiExpress, SiLaravel, SiCodeigniter, SiJsonwebtokens, SiMysql, SiSqlite, SiPrisma, SiVercel, SiRailway } from 'react-icons/si';
 import { useIsMobile } from "@/app/hooks/use-mobiel";
-
+import { motion } from "motion/react"
 
 function TechStackSection() {
     const isMobile = useIsMobile()
@@ -42,6 +42,10 @@ function TechStackSection() {
 
     return (
         <section className="mt-10">
+             <motion.div initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeIn' }}
+        viewport={{ once: false }}>
             <div className="wrapper">
                 <h1 className="sm:text-4xl text-2xl font-bold flex items-center gap-2">
                     <Layers className="text-muted-foreground sm:size-8 size-5" />
@@ -154,6 +158,7 @@ function TechStackSection() {
                 fadeOutColor="#ffffff"
                 ariaLabel="Technology partners"
             />
+            </motion.div>
         </section>
     )
 }
