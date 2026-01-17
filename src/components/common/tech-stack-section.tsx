@@ -1,7 +1,7 @@
 import { Layers } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import LogoLoop from "../LogoLoop";
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJamstack, SiJavascript, SiPostgresql, SiMongodb, SiNodedotjs, SiExpress, SiLaravel, SiCodeigniter, SiJsonwebtokens, SiMysql, SiSqlite, SiPrisma, SiVercel, SiRailway } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiPostgresql, SiMongodb, SiNodedotjs, SiExpress, SiLaravel, SiCodeigniter, SiJsonwebtokens, SiMysql, SiSqlite, SiPrisma, SiVercel, SiRailway } from 'react-icons/si';
 import { useIsMobile } from "@/app/hooks/use-mobiel";
 
 
@@ -16,7 +16,7 @@ function TechStackSection() {
             database: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
             orm: ["Prisma", "Eloquent"],
             deployment: ["Vercel", "Railway", "Neon"],
-            devTools: ["Git", "Github", "VS Code", "Cursor", "Discord"]
+            devTools: ["Git", "Github", "VS Code", "Discord"]
         }
     ]
 
@@ -150,6 +150,7 @@ function TechStackSection() {
                 gap={40}
                 hoverSpeed={0}
                 scaleOnHover
+                fadeOut
                 fadeOutColor="#ffffff"
                 ariaLabel="Technology partners"
             />
