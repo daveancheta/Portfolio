@@ -41,7 +41,7 @@ function TechStackSection() {
     ];
 
     return (
-        <section className="mt-10">
+        <section className="wrapper">
              <motion.div initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, ease: 'easeIn' }}

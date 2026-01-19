@@ -117,7 +117,7 @@
 }
 
 .wrapper {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8
+  @apply mx-20 mt-20
 }
 
 

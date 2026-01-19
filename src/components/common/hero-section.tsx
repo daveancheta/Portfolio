@@ -48,7 +48,7 @@ function HeroSection() {
 
   ]
   return (
-    <section className="wrapper sm:mt-20 mt-10 grid xl:grid-cols-2 sm:grid-cols-1 lg:grid-cols-1 md-grid-cols-1 justify-center items-center gap-8">
+    <section className="wrapper grid xl:grid-cols-2 sm:grid-cols-1 lg:grid-cols-1 md-grid-cols-1 justify-center items-center gap-8">
       <div className="flex flex-col gap-2 sm:mt-0 mt-0 order-1 sm:order-1 md:order-1 xl:order-2 lg:order-1 sm:items-center md:items-center">
         <motion.div
           initial={{ opacity: 0, x: 1000 }}
