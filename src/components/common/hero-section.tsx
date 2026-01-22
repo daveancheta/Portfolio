@@ -91,7 +91,7 @@ function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeIn" }}
           viewport={{ once: true }}>
-          <div className="md:text-center sm:text-center xl:text-start">
+          <div className="md:text-center sm:text-center xl:text-start text-center">
             <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
             <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
             <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">

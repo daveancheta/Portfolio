@@ -117,7 +117,7 @@
 }
 
 .wrapper {
-  @apply mx-20 mt-20
+  @apply sm:mx-20 sm:mt-20 mx-2 mt-10
 }
 
 
