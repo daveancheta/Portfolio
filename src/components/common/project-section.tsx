@@ -48,9 +48,9 @@ function ProjectSection() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: 'easeIn' }}
               viewport={{ once: false }}>
-              <div className="bg-white dark:bg-black p-5 border-3 rounded-lg min-h-150 max-h-auto space-y-4 
+              <div className="bg-white dark:bg-black sm:p-5 border-3 rounded-lg min-h-150 max-h-auto space-y-4 
             transition-all duration-300 ease-in-out hover:shadow-2xl transform hover:scale-101">
-                <img className="rounded-lg" src={p.imgUrl} alt="" />
+                <img className="rounded-t-lxl" src={p.imgUrl} alt="" />
                 <div className="p-4 flex flex-col gap-2">
                   <div className="flex flex-wrap gap-2">
                     {p.stack.map((stack) =>
