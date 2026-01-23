@@ -46,7 +46,7 @@ function TechStackSection() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, ease: 'easeIn' }}
         viewport={{ once: false }}>
-            <div className="wrapper">
+            <div>
                 <h1 className="sm:text-4xl text-2xl font-bold flex items-center gap-2">
                     <Layers className="text-muted-foreground sm:size-8 size-5" />
                     Tech Stack
