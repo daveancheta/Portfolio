@@ -55,7 +55,7 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                     <div className='flex flex-row items-center gap-2'>
                         <img className='w-15 h-15 rounded-full object-cover' src="/profile.jpg" alt="profile" />
                         <div className='flex flex-col gap-1'>
-                            <span className='font-bold'>Chat with Dave</span>
+                            <span className='font-bold'>Heaven Dave Ancheta</span>
                             <div className='flex flex-row items-center gap-1'>
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
                                 <span className='text-xs'>Active Now</span>
