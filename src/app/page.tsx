@@ -5,6 +5,7 @@ import Header from "@/components/common/header";
 import HeroSection from "@/components/common/hero-section";
 import ProjectSection from "@/components/common/project-section";
 import TechStackSection from "@/components/common/tech-stack-section";
+import AIAgent from "@/components/gemini/ai-agent";
 import Squares from "@/components/Squares";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { cn } from "@/lib/utils";
@@ -38,6 +39,8 @@ export default function Home() {
       <ProjectSection />
 
       <TechStackSection />
+
+      <AIAgent />
 
       <Footer />
     </div>
