@@ -46,8 +46,8 @@ A modern, interactive portfolio website built with Next.js, featuring smooth ani
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd portfolio
+git clone https://github.com/daveancheta/Portfolio
+cd Portfolio
 ```
 
 2. Install dependencies:
