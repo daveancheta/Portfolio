@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 function Footer() {
-  const getCurrentYear = new Date().getFullYear()
+  const getCurrentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
@@ -24,8 +24,7 @@ function Footer() {
       title: "Facebook",
       link: "https://www.facebook.com/heavendavequimpoancheta/",
     },
-
-  ]
+  ];
 
   return (
     <footer className='mt-10 sm:px-15 px-5

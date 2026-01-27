@@ -6,7 +6,7 @@ import { useIsMobile } from "@/app/hooks/use-mobiel";
 import { motion } from "motion/react"
 
 function TechStackSection() {
-    const isMobile = useIsMobile()
+    const isMobile = useIsMobile();
 
     const stack = [
         {
@@ -18,7 +18,7 @@ function TechStackSection() {
             deployment: ["Vercel", "Railway", "Neon"],
             devTools: ["Git", "Github", "VS Code", "Figma", "Discord"]
         }
-    ]
+    ];
 
     const techLogos = [
         { node: <SiJavascript /> },

@@ -6,18 +6,18 @@ import { GoogleGenAI } from "@google/genai";
 import { cn } from '@/lib/utils';
 
 function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
     const ai = new GoogleGenAI({ apiKey });
-    const [prompt, setPrompt] = useState<string>("")
-    const [response, setResponse] = useState<any>("")
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [message, setMessage] = useState<string>("")
-    const messageRef = useRef<HTMLDivElement>(null)
+    const [prompt, setPrompt] = useState<string>("");
+    const [response, setResponse] = useState<any>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [message, setMessage] = useState<string>("");
+    const messageRef = useRef<HTMLDivElement>(null);
 
     const handleSend = async () => {
-        setMessage(prompt)
-        setIsLoading(true)
-        setPrompt("")
+        setMessage(prompt);
+        setIsLoading(true);
+        setPrompt("");
 
         try {
             const response = await ai.models.generateContent({
@@ -31,7 +31,7 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
         } finally {
             setIsLoading(false)
         }
-    }
+    };
 
     const handleKeyEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === 'Enter') {
@@ -44,13 +44,13 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                 handleSend()
             }
         }
-    }
+    };
 
     useEffect(() => {
         if (messageRef.current) {
             messageRef.current.scrollIntoView({ behavior: "smooth" })
         }
-    })
+    });
 
     return (
         <div className='sm:relative bg-background border
