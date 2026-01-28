@@ -1,4 +1,3 @@
-import { Highlighter } from "@/components/ui/highlighter"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
@@ -41,7 +40,7 @@ function HeroSection() {
     {
       id: 3,
       title: "Facebook",
-      logo: <img className="w-4 h-4" src="/facebook.svg" alt="" />,
+      logo: <img className="w-4 h-4" src="/facebook.svg" alt="Facebook" />,
       link: "https://www.facebook.com/heavendavequimpoancheta/",
       profile: isMounted && theme === "dark" ? "/profile/dark-facebook.png" : "/profile/facebook.png"
     },
@@ -72,12 +71,12 @@ function HeroSection() {
 
           <div className="max-w-xl w-full hidden xl:flex md:hidden sm:hidden">
             <Terminal>
-              <TypingAnimation>Initializing life v2.0...</TypingAnimation>
-              <AnimatedSpan>✔ Woke up early</AnimatedSpan>
-              <AnimatedSpan>✔ Coded something new</AnimatedSpan>
-              <AnimatedSpan>✔ Learned a skill</AnimatedSpan>
-              <TypingAnimation>Deploying happiness...</TypingAnimation>
-              <AnimatedSpan>✔ Grateful and motivated</AnimatedSpan>
+              <TypingAnimation>Initializing portfolio environment...</TypingAnimation>
+              <AnimatedSpan>✔ Architecting scalable web experiences</AnimatedSpan>
+              <AnimatedSpan>✔ Delivering reliable full‑stack solutions</AnimatedSpan>
+              <AnimatedSpan>✔ Collaborating with product‑focused teams</AnimatedSpan>
+              <TypingAnimation>Deploying high‑impact features...</TypingAnimation>
+              <AnimatedSpan>✔ Continuously learning and improving</AnimatedSpan>
             </Terminal>
           </div>
         </motion.div>
@@ -94,13 +93,11 @@ function HeroSection() {
             <h1 className="sm:text-4xl text-2xl font-bold">Dave Ancheta</h1>
             <span className="sm:text-xl text-md text-muted-foreground">Full-Stack Developer</span>
             <p className="sm:text-3xl text-xl md:text-2xl mt-5 font-medium sm:w-130">
-              Hello World,
-              I’m Dave from the Philippines,
-              a technology enthusiast
-              driven by passion for programming and continuous learning.</p>
+              I&apos;m a full‑stack developer based in the Philippines, focused on building clean, performant, and maintainable web applications that solve real business problems.
+            </p>
 
             <p className="sm:text-3xl md:text-2xl text-xl mt-5 sm:w-130 pacifico text-muted-foreground">
-              "Continue learning and exploring new things, but don't forget to rest, be with someone you love, and always pray." - Dave
+              "Keep learning, build with intention, and stay grounded in what truly matters." – Dave
             </p>
           </div>
           <div>
