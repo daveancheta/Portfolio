@@ -127,9 +127,8 @@ function ProjectSection() {
                 <p className="text-sm sm:text-base text-muted-foreground">
                   {project.description}
                 </p>
-                <div className="flex flex-row gap-2 items-center mt-5">
+                <div className="flex flex-row gap-2 items-center mt-5 justify-center sm:justify-start">
                   {project.link ?
-
                     <Button variant="outline" className="cursor-none" asChild>
                       <Link href={project.link}>
                         <Eye /> Live Site
