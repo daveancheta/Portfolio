@@ -21,48 +21,6 @@ export default function Home() {
   const [show, setShow] = useState<boolean>(false);
   const scrollToTopRef = useRef<HTMLButtonElement>(null);
 
-  const scrollToTop = () => {
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
-  useEffect(() => {
-    const hero = document.getElementById('hero');
-    if (!hero) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShow(!entry.isIntersecting);
-      },
-      {
-        threshold: 0.1
-      }
-    );
-
-    observer.observe(hero);
-
-    return () => observer.disconnect();
-  }, [])
-
-  useEffect(() => {
-    if (show) {
-      scrollToTopRef.current?.classList.remove("hidden");
-
-      setTimeout(() => {
-        scrollToTopRef.current?.classList.remove("opacity-0", "scale-0");
-        scrollToTopRef.current?.classList.add("opacity-100", "scale-100");
-      }, 100)
-    } else {
-      scrollToTopRef.current?.classList.remove("opacity-100", "scale-100");
-      scrollToTopRef.current?.classList.add("opacity-0", "scale-0");
-
-      setTimeout(() => {
-        scrollToTopRef.current?.classList.add("hidden");
-      }, 300)
-    }
-  })
-
   return (
     <div className="relative w-screen min-h-screen cursor-none">
       <div className="z-20 hidden sm:flex">
@@ -85,14 +43,6 @@ export default function Home() {
       <Header />
 
       <HeroSection />
-
-      <div className="fixed bottom-10 sm:left-10 right-5 sm:flex sm:justify-center">
-        <Button ref={scrollToTopRef} variant="outline"
-          className="hidden transition-all duration-300 
-        ease-in-out opacity-0 scale-0 origin z-25 cursor-none" onClick={scrollToTop}>
-          <MoveUp />
-        </Button>
-      </div>
 
       <ProjectSection />
 
