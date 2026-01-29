@@ -27,14 +27,14 @@ function AIAgent() {
     })
 
     return (
-        <div className='fixed sm:bottom-16 bottom-5 flex sm:justify-self-end justify-self-center sm:mr-10 cursor-none z-20'>
-            <div className='flex flex-col gap-2 sm:items-end items-center'>
+        <div className='fixed sm:bottom-16 bottom-5 flex sm:justify-self-end justify-self-end sm:mr-10 cursor-none z-20'>
+            <div className='flex flex-col gap-2 sm:items-end items-end'>
                 <div className="transition-all duration-300 sm:origin-bottom-right origin-bottom ease-in-out opacity-0 scale-0 hidden"
                     ref={containerRef} >
                     <ChatContainer isOpen={isOpen} setIsOpen={setIsOpen} />
                 </div>
                 <Button variant="default"
-                    className='rounded-full p-6 cursor-none w-fit'
+                    className='rounded-full p-6 cursor-none w-fit sm:mr-0 mr-5'
                     onClick={() => setIsOpen(!isOpen)}>
                     <Send className='size-5 sm:animate-bounce' />
                     <span className='font-bold sm:flex hidden'>Chat with Dave</span>
