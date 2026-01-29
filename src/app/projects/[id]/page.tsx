@@ -1,7 +1,12 @@
-import { Badge } from "@/components/ui/badge"
-import { SmoothCursor } from "@/components/ui/smooth-cursor"
-import { MoveLeft } from "lucide-react"
-import Link from "next/link"
+"use client";
+
+import Squares from "@/components/Squares";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import { cn } from "@/lib/utils";
+import { MoveLeft } from "lucide-react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { use } from "react";
 
 type Project = {
     id: number
@@ -10,7 +15,7 @@ type Project = {
     problem: string
     solution: string
     type: string
-}
+};
 
 const projects: Project[] = [
     {
@@ -45,17 +50,30 @@ const projects: Project[] = [
         solution: "SitterLy is a SaaS platform where parents can browse and hire babysitters easily, and babysitters can post their profiles with a “Hire Me” option. The platform centralizes service listings, allows secure online payments through PayMongo, and streamlines communication between parents and babysitters, making the process organized and reliable.",
         type: "Personal Project",
     },
-]
+];
 
-async function page({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params;
-    const project = projects.find((project) => project.id === Number(id))
+function page({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
+    const project = projects.find((project) => project.id === Number(id));
+    const { theme } = useTheme();
 
     return (
         <div className="h-screen w-screen">
             <div className="z-20 hidden sm:flex">
                 <SmoothCursor />
             </div>
+
+            <div className="absolute inset-0 -z-10">
+                <Squares
+                    speed={0.5}
+                    squareSize={40}
+                    direction='diagonal' // up, down, left, right, diagonal
+                    borderColor={cn(theme === 'dark' ? 'white' : 'black')}
+                />
+            </div>
+
+            <div className="absolute inset-0 bg-white/90 dark:bg-black/90 -z-5"></div>
+
             <div className="wrapper my-4">
                 <Link href="/" className="flex flex-row items-center gap-2 text-muted-foreground cursor-none">
                     <MoveLeft />
