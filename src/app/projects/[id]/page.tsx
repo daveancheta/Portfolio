@@ -107,7 +107,7 @@ function page({ params }: { params: Promise<{ id: string }> }) {
                     </div>
                     <div className="relative order-1 sm:order-2">
                         <div className="relative border border-border/60 rounded-xl overflow-hidden">
-                            <img className="w-full h-100 object-cover hover:scale-102 
+                            <img className="w-full sm:h-100 object-cover hover:scale-102 
                     transition-all duration-500 ease-in-out rounded-b-none border border-border/60" src={project?.imgUrl} alt={project?.title} />
                             <div className="flex justify-between p-4 items-center bg-card text-card-foreground">
                                 <div className="flex flex-col items-center">
