@@ -36,8 +36,8 @@ function AIAgent() {
                 <Button variant="default"
                     className='rounded-full p-6 cursor-none w-fit'
                     onClick={() => setIsOpen(!isOpen)}>
-                    <Send className='size-5 animate-bounce' />
-                    <span className='font-bold'>Chat with Dave</span>
+                    <Send className='size-5 sm:animate-bounce' />
+                    <span className='font-bold sm:flex hidden'>Chat with Dave</span>
                 </Button>
             </div>
         </div>
