@@ -16,6 +16,15 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+    {
+    id: "z2l0",
+    title: "Krave Docs",
+    imgUrl: "/krave.png",
+    description:
+      "Krave Docs provides reusable chatbot UI and clear documentation to help Next.js developers quickly integrate AI APIs into projects.",
+    stack: ["Next.js", "TypeScript", "Tailwind", "Fumadocs"],
+    link: "https://krave-docs.vercel.app/",
+  },
   {
     id: "a9f3",
     title: "ReQuake",

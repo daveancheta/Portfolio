@@ -19,6 +19,14 @@ type Project = {
 
 const projects: Project[] = [
     {
+        id: "z2l0",
+        title: "Krave Docs",
+        imgUrl: "/krave.png",
+        problem: "Many Next.js developers face difficulties when integrating AI chatbots due to unclear or fragmented documentation, inconsistent API response handling, and the need to repeatedly build chatbot UI and backend logic from scratch. This often leads to wasted development time, duplicated code, and fragile implementations that are hard to scale or adapt to different AI providers.",
+        solution: "Krave Docs addresses these challenges by providing a reusable chatbot UI and clear, step-by-step documentation tailored for Next.js developers. It offers structured backend examples for interacting with AI APIs, starting with Gemini and with OpenAI and Claude support planned. By separating frontend logic from AI providers, Krave Docs enables developers to integrate, reuse, and switch AI services easily, reducing boilerplate and accelerating development.",
+        type: "Personal Project",
+    },
+    {
         id: "a9f3",
         title: "ReQuake",
         imgUrl: "/requake.png",
