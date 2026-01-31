@@ -2,37 +2,27 @@
 import { Send, X } from 'lucide-react'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupTextarea } from '../ui/input-group'
 import React, { useEffect, useRef, useState } from 'react'
-import { GoogleGenAI } from "@google/genai";
 import { cn } from '@/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { UseGeminiStore } from '@/app/state/use-store-gemini';
 
-function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-    const ai = new GoogleGenAI({ apiKey });
-    const [prompt, setPrompt] = useState<string>("");
-    const [response, setResponse] = useState<any>("");
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [message, setMessage] = useState<string>("");
+function ChatContainer({ isOpen, setIsOpen, avatar, name }:
+    {
+        isOpen?: boolean,
+        setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+        name?: string,
+        avatar?: string
+    }) {
+    const { generateResponse, isGenerating, response } = UseGeminiStore();
     const messageRef = useRef<HTMLDivElement>(null);
+    const [prompt, setPrompt] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
 
-    const handleSend = async () => {
-        setMessage(prompt);
-        setIsLoading(true);
-        setPrompt("");
-
-        try {
-            const response = await ai.models.generateContent({
-                model: "gemini-2.5-flash",
-                contents: { text: prompt },
-            });
-            setResponse(response.text?.replace(/\*/g, '') || '');
-        } catch (error) {
-            console.log(error)
-            setResponse("This feature is temporarily unavailable. Check back shortly.");
-        } finally {
-            setIsLoading(false)
-        }
-    };
-
+    const handleSend = () => {
+        setMessage(prompt)
+        setPrompt("")
+        generateResponse(prompt)
+    }
     const handleKeyEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault()
@@ -40,8 +30,10 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
 
         if (prompt.trim()) {
             if (e.key === 'Enter' && !e.shiftKey) {
+                setMessage(prompt)
+                setPrompt("")
                 e.preventDefault()
-                handleSend()
+                generateResponse(prompt)
             }
         }
     };
@@ -54,14 +46,15 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
 
     return (
         <div className='sm:relative bg-background border
-        rounded-md sm:min-h-130 sm:min-w-100 max-w-100 sm:h-full flex flex-col w-screen h-130 max-h-130'>
+        rounded-md sm:min-h-130 sm:min-w-100 max-w-100 h-screen flex flex-col w-screen max-h-130'>
             <div className='flex flex-col h-full'>
-                {/* Profile */}
                 <div className='flex items-center justify-between px-4 py-2 border-b-2'>
                     <div className='flex flex-row items-center gap-2'>
-                        <img className='w-15 h-15 rounded-full object-cover' src="/profile.jpg" alt="profile" />
+                        <Avatar className='w-12 h-12'>
+                            <AvatarImage className='object-cover w-full h-full' src={avatar} />
+                        </Avatar>
                         <div className='flex flex-col gap-1'>
-                            <span className='font-bold'>Heaven Dave Ancheta</span>
+                            <span className='font-bold'>{name}</span>
                             <div className='flex flex-row items-center gap-1'>
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
                                 <span className='text-xs'>Active Now</span>
@@ -72,7 +65,6 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                         onClick={() => setIsOpen(!isOpen)}><X /></button>
                 </div>
 
-                {/* Messages */}
                 <div className='flex-1 overflow-y-auto space-y-4 p-2 scrollable-div'>
                     <div className='flex flex-col items-start gap-2'>
                         <div className='bg-black dark:bg-white rounded-lg p-4 w-fit max-w-60'>
@@ -86,9 +78,9 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                         </div>
                     </div>
                     <div className='flex flex-col items-start'>
-                        <div className={cn(!response && !isLoading && 'hidden')}>
+                        <div className={cn(!response && !isGenerating && 'hidden')}>
                             <div className='bg-black dark:bg-white rounded-lg p-4 w-fit max-w-60'>
-                                {isLoading ?
+                                {isGenerating ?
                                     <div className='bg-black dark:bg-white flex flex-row gap-1'>
                                         <div className='w-1 h-1 bg-white dark:bg-black animate-bounce rounded-full'></div>
                                         <div className='w-1 h-1 bg-white dark:bg-black animate-bounce delay-150 rounded-full'></div>
@@ -102,10 +94,9 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                     <div className={cn(isOpen && "hidden")} ref={messageRef}></div>
                 </div>
 
-                {/* Message Input */}
                 <InputGroup className='rounded-t-none'>
                     <InputGroupTextarea
-                        className='cursor-none'
+                    className='cursor-none'
                         id="block-end-textarea"
                         placeholder="Aa"
                         onChange={(e) => setPrompt(e.target.value)}
@@ -113,13 +104,12 @@ function ChatContainer({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Reac
                         onKeyDown={handleKeyEnter}
                         maxLength={300}
                     />
-                    <InputGroupAddon align="block-end"
-                        className='cursor-none'>
+                    <InputGroupAddon align="block-end">
                         <InputGroupText>{prompt.length}/300</InputGroupText>
                         <InputGroupButton variant="default" size="sm"
-                            className="ml-auto cursor-none"
+                            className="ml-auto"
                             onClick={handleSend}
-                            disabled={isLoading || !prompt.trim()}>
+                            disabled={isGenerating || !prompt.trim()}>
                             <Send />
                         </InputGroupButton>
                     </InputGroupAddon>

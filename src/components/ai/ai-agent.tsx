@@ -1,10 +1,10 @@
+"use client"
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '../ui/button'
 import { Send } from 'lucide-react'
 import ChatContainer from './chat-container'
-import { cn } from '@/lib/utils'
 
-function AIAgent() {
+function AIAgent({ name, avatar }: { name?: string, avatar?: string }) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -27,14 +27,14 @@ function AIAgent() {
     })
 
     return (
-        <div className='fixed sm:bottom-16 bottom-5 flex sm:justify-self-end justify-self-end sm:mr-10 cursor-none z-20'>
+        <div className='fixed sm:bottom-16 bottom-5 flex sm:justify-self-end justify-self-end sm:mr-10 z-20'>
             <div className='flex flex-col gap-2 sm:items-end items-end'>
                 <div className="transition-all duration-300 sm:origin-bottom-right origin-bottom ease-in-out opacity-0 scale-0 hidden"
                     ref={containerRef} >
-                    <ChatContainer isOpen={isOpen} setIsOpen={setIsOpen} />
+                    <ChatContainer isOpen={isOpen} setIsOpen={setIsOpen} name={name} avatar={avatar}/>
                 </div>
                 <Button variant="default"
-                    className='rounded-full p-6 cursor-none w-fit sm:mr-0 mr-5'
+                    className='rounded-full p-6 w-fit sm:mr-0 mr-5 cursor-none'
                     onClick={() => setIsOpen(!isOpen)}>
                     <Send className='size-5 sm:animate-bounce' />
                     <span className='font-bold sm:flex hidden'>Chat with Dave</span>
