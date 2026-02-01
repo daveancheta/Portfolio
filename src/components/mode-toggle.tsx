@@ -17,7 +17,7 @@ export function ModeToggle() {
 
   return (
     <div className="rounded-full p-1 bg-transparent
-     border border-black/50 dark:border-white/50 flex flex-row justify-center items-center gap-1">
+     border border-primary/30 flex flex-row justify-center items-center gap-1">
       <button className={cn("cursor-none rounded-full p-1",
         theme === 'light' && "bg-gray-600"
       )}
