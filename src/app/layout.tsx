@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Heaven Dave Ancheta",
   description: "Full-Stack Developer",
-};
+}; 
 
 export default function RootLayout({
   children,
